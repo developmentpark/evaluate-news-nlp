@@ -8,6 +8,9 @@ module.exports = {
   mode: "development",
   devtool: "source-map",
   stats: "verbose",
+  devServer: {
+    port: 5050,
+  },
   module: {
     rules: [
       {
