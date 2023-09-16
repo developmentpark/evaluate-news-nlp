@@ -1,0 +1,108 @@
+.results {
+  width: 100%;
+  max-width: 700px;
+  display: flex;
+  gap: 1rem;
+}
+.results__attribute-list {
+  background-color: rgba(255, 255, 255, 0.4);
+  box-shadow: 0px 6px 18px 0.1px #8a2be259;
+  border-radius: 10px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+.results__text {
+  background-color: rgba(255, 255, 255, 0.4);
+  box-shadow: 0px 6px 18px 0.1px #8a2be259;
+  border-radius: 10px;
+  padding: 1.5rem;
+  font-size: 16px;
+  line-height: 24px;
+  color: rgb(61, 61, 61);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.results__tag-list {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.results__tag_strong-positive {
+  width: max-content;
+  padding: 0.1rem 0.5rem;
+  background-color: rgb(163, 255, 167, 0.5);
+  border-radius: 6px;
+  color: rgb(33, 139, 37);
+  font-size: 12px;
+  font-weight: 600;
+}
+.results__tag_positive {
+  width: max-content;
+  padding: 0.1rem 0.5rem;
+  background-color: rgba(238, 247, 124, 0.5);
+  border-radius: 6px;
+  color: #e5a61e;
+  font-size: 12px;
+  font-weight: 600;
+}
+.results__tag_neutral {
+  width: min-content;
+  padding: 0.1rem 0.5rem;
+  background-color: rgb(221, 221, 221, 0.5);
+  border-radius: 6px;
+  color: rgb(117, 117, 117);
+  font-size: 12px;
+  font-weight: 600;
+}
+.results__tag_negative {
+  width: max-content;
+  padding: 0.1rem 0.5rem;
+  background-color: rgba(255, 193, 111, 0.5);
+  border-radius: 6px;
+  color: rgb(241, 116, 44);
+  font-size: 12px;
+  font-weight: 600;
+}
+.results__tag_strong-negative {
+  width: max-content;
+  padding: 0.1rem 0.5rem;
+  background-color: rgb(255, 163, 163, 0.5);
+  border-radius: 6px;
+  color: rgb(212, 50, 50);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.results__attribute {
+  width: fit-content;
+  border-radius: 5px;
+}
+
+.results__attribute_subjetivity,
+.results__attribute_irony,
+.results__attribute_agreement {
+  padding: 0.2rem 0.5rem;
+  background-color: rgb(76, 0, 255);
+}
+
+.results__attribute_polarity,
+.results__attribute_confidence {
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+  background-color: rgb(213, 69, 218);
+}
+.results__attribute-title {
+  font-size: 12px;
+}
+.results__attribute-value {
+  font-size: 2rem;
+}

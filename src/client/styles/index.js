@@ -1,5 +1,7 @@
-/* import "./base.scss";
+import "./base.scss";
 import "./header.scss";
+import "./main.scss";
 import "./footer.scss";
 import "./form.scss";
-import "./resets.scss"; */
+import "./result.scss";
+import "./resets.scss";
