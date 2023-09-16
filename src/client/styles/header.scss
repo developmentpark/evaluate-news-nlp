@@ -1,3 +1,5 @@
+@import "base";
+
 .header {
   display: flex;
   flex-direction: column;
@@ -5,14 +7,16 @@
   height: max-content;
   padding: 2rem;
   gap: 1.5rem;
-}
-.header__title {
-  font-size: 34px;
-  font-weight: 900;
-  text-shadow: 0px 2px #8a2be259;
-}
-.header__slogan {
-  font-size: 24px;
-  color: #f1f1f1;
-  text-shadow: 0px 2px #8a2be259;
+
+  .title {
+    font-size: 34px;
+    font-weight: 900;
+    text-shadow: $text-shadow;
+  }
+
+  .slogan {
+    font-size: 24px;
+    color: $white-color;
+    text-shadow: $text-shadow;
+  }
 }

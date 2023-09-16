@@ -1,6 +1,8 @@
+@import "base";
+
 .footer {
   height: 200px;
-  color: #f1f1f1;
+  color: $gray-color-5;
   text-align: center;
   padding-top: 3rem;
   font-size: 12px;

@@ -7,14 +7,14 @@
   <body>
     <div class="container">
       <header class="header">
-        <h1 class="header__title">Sentiment Analyzer</h1>
-        <h2 class="header__slogan">Discover the Emotions Behind the Words</h2>
+        <h1 class="title">Sentiment Analyzer</h1>
+        <h2 class="slogan">Discover the Emotions Behind the Words</h2>
       </header>
       <main class="main">
         <section class="form-container">
           <form class="form" onsubmit="return Client.handleSubmit(event)">
             <input
-              class="form__input"
+              class="input"
               id="name"
               type="text"
               name="input"
@@ -23,7 +23,7 @@
               placeholder="Enter URL to blogs or articles"
             />
             <input
-              class="form__submit"
+              class="submit"
               type="submit"
               name=""
               value="Analyze"
@@ -33,52 +33,38 @@
           </form>
         </section>
 
-        <section class="results">
-          <div class="results__attribute-list">
-            <div class="results__attribute results__attribute_polarity">
-              <p class="results__attribute-title">Polarity</p>
-              <span class="results__attribute-value">😃</span>
+        <section class="results-section">
+          <div class="attributes-panel">
+            <div class="attribute_big">
+              <p class="title">Polarity</p>
+              <span class="value">😃</span>
             </div>
-            <div class="results__attribute results__attribute_confidence">
-              <p class="results__attribute-title">Confidence</p>
-              <span class="results__attribute-value">98%</span>
+            <div class="attribute_big">
+              <p class="title">Confidence</p>
+              <span class="value">98%</span>
             </div>
-            <div class="results__attribute results__attribute_agreement">
-              Agreement
-            </div>
-            <div class="results__attribute results__attribute_subjetivity">
-              Subjetivity
-            </div>
-            <div class="results__attribute results__attribute_irony">Irony</div>
+            <div class="attribute_small">Agreement</div>
+            <div class="attribute_small">Subjetivity</div>
+            <div class="attribute_small">Irony</div>
           </div>
-          <div class="results__text">
-            <p class="results__text-content">
+          <div class="text-panel">
+            <p class="text-panel__text">
               Lorem ipsum dolor sit amet
-              <span
-                style="
-                  background-color: rgba(235, 238, 57, 0.863);
-                  padding: 0.5rem 0.1rem;
-                "
+              <span class="highlight_positive"
                 >consectetur
-                <span
-                  style="
-                    background-color: rgba(3, 250, 24, 0.521);
-                    padding: 0.5rem 0.1rem;
-                  "
-                  >adipisicing</span
-                >
+                <span class="highlight_strong-positive">adipisicing</span>
                 elit.</span
               >
               Culpa, dignissimos at? Ipsam natus delectus, culpa tempora
               adipisci provident quaerat iure incidunt commodi error, aliquam
               ratione nobis debitis iusto aut doloribus!
             </p>
-            <div class="results__tag-list">
-              <div class="results__tag_strong-positive">Strong Positive</div>
-              <div class="results__tag_positive">Positive</div>
-              <div class="results__tag_neutral">Neutral</div>
-              <div class="results__tag_negative">Negative</div>
-              <div class="results__tag_strong-negative">Strong Negative</div>
+            <div class="text-panel__tags">
+              <div class="tag_strong-positive">Strong Positive</div>
+              <div class="tag_positive">Positive</div>
+              <div class="tag_neutral">Neutral</div>
+              <div class="tag_negative">Negative</div>
+              <div class="tag_strong-negative">Strong Negative</div>
             </div>
           </div>
         </section>

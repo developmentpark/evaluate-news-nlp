@@ -1,12 +1,48 @@
+$font-family: Helvetica, sans-serif;
+$white-color: rgb(248, 248, 248);
+$strong-positive-polarity-color: #38f21d;
+$positive-polarity-color: #fff343;
+$neutral-polarity-color: #6c6c6c;
+$negative-polarity-color: #e87e0d;
+$strong-negative-polarity-color: #ee4242;
+$gray-color-1: rgb(49, 49, 49);
+$gray-color-2: rgb(78, 78, 78);
+$gray-color-3: rgb(126, 126, 126);
+$gray-color-4: rgb(172, 172, 172);
+$gray-color-5: rgb(240, 240, 240);
+$primary-color: #c157e7;
+$box-shadow: 0px 6px 18px 0.1px #8a2be259;
+$text-shadow: 0px 2px #8a2be259;
+
 body {
   background: linear-gradient(
     315deg,
     hsla(211, 96%, 62%, 1) 0%,
     hsla(295, 94%, 76%, 1) 100%
   );
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: $font-family;
   font-size: 16px;
-  color: white;
+  color: $white-color;
+}
+
+@mixin button($size: 16px, $border-radius: 10px, $padding: 0 20px) {
+  padding: $padding;
+  border: 0px;
+  border-radius: $border-radius;
+  background-color: $primary-color;
+  color: $white-color;
+  font-size: $size;
+  font-weight: 600;
+
+  &:hover {
+    cursor: pointer;
+    background-color: #c13cf1;
+  }
+
+  &:disabled {
+    background-color: #c756f0;
+    color: $gray-color-3;
+  }
 }
 
 .container {
