@@ -2,44 +2,296 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8" />
-    <title>Test</title>
+    <title>Sentiment Analyzer</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0px;
+        padding: 0px;
+      }
+      body {
+        background: linear-gradient(
+          315deg,
+          hsla(211, 96%, 62%, 1) 0%,
+          hsla(295, 94%, 76%, 1) 100%
+        );
+        font-size: 16px;
+        color: white;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      .container {
+        width: 100vw;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
+      .header {
+        height: max-content;
+        padding: 2rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        align-items: center;
+      }
+      .header__title {
+        font-size: 34px;
+        font-weight: 900;
+        text-shadow: 0px 2px #8a2be259;
+      }
+      .header__slogan {
+        font-size: 24px;
+        color: #f1f1f1;
+        text-shadow: 0px 2px #8a2be259;
+      }
+      .footer {
+        height: 200px;
+        color: #f1f1f1;
+        text-align: center;
+        padding-top: 3rem;
+        font-size: 12px;
+        margin-top: 2rem;
+      }
+      .main {
+        flex: 1;
+        width: 100%;
+        padding: 1rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+      }
+      .form-container {
+        width: 100%;
+        max-width: 700px;
+      }
+      .form {
+        /* flex: 1; */
+        background-color: rgba(255, 255, 255, 0.4);
+        box-shadow: 0px 6px 18px 0.1px #8a2be259;
+        height: fit-content;
+        width: 100%;
+        padding: 1rem;
+        display: flex;
+        justify-content: center;
+        border-radius: 10px;
+      }
+      .form__input {
+        flex: 1;
+        height: 36px;
+        border-radius: 10px 0 0 10px;
+        padding: 0.5rem;
+        font-size: 16px;
+        font-style: italic;
+        border: solid 1px lightgray;
+        outline: none;
+      }
+      .form__submit {
+        width: 100px;
+        height: 36px;
+        border: 0px;
+        border-radius: 0 10px 10px 0;
+        background-color: #c157e7;
+        color: white;
+        font-size: 16px;
+        font-weight: 600;
+      }
+      .form__submit:hover {
+        cursor: pointer;
+        background-color: #c13cf1;
+      }
+
+      .results {
+        width: 100%;
+        max-width: 700px;
+        display: flex;
+        gap: 1rem;
+      }
+      .results__attribute-list {
+        background-color: rgba(255, 255, 255, 0.4);
+        box-shadow: 0px 6px 18px 0.1px #8a2be259;
+        border-radius: 10px;
+        padding: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.2rem;
+      }
+      .results__text {
+        background-color: rgba(255, 255, 255, 0.4);
+        box-shadow: 0px 6px 18px 0.1px #8a2be259;
+        border-radius: 10px;
+        padding: 1.5rem;
+        font-size: 16px;
+        line-height: 24px;
+        color: rgb(61, 61, 61);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 1rem;
+      }
+
+      .results__tag-list {
+        display: flex;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+      }
+
+      .results__tag_strong-positive {
+        width: max-content;
+        padding: 0.1rem 0.5rem;
+        background-color: rgb(163, 255, 167, 0.5);
+        border-radius: 6px;
+        color: rgb(33, 139, 37);
+        font-size: 12px;
+        font-weight: 600;
+      }
+      .results__tag_positive {
+        width: max-content;
+        padding: 0.1rem 0.5rem;
+        background-color: rgba(238, 247, 124, 0.5);
+        border-radius: 6px;
+        color: #e5a61e;
+        font-size: 12px;
+        font-weight: 600;
+      }
+      .results__tag_neutral {
+        width: min-content;
+        padding: 0.1rem 0.5rem;
+        background-color: rgb(221, 221, 221, 0.5);
+        border-radius: 6px;
+        color: rgb(117, 117, 117);
+        font-size: 12px;
+        font-weight: 600;
+      }
+      .results__tag_negative {
+        width: max-content;
+        padding: 0.1rem 0.5rem;
+        background-color: rgba(255, 193, 111, 0.5);
+        border-radius: 6px;
+        color: rgb(241, 116, 44);
+        font-size: 12px;
+        font-weight: 600;
+      }
+      .results__tag_strong-negative {
+        width: max-content;
+        padding: 0.1rem 0.5rem;
+        background-color: rgb(255, 163, 163, 0.5);
+        border-radius: 6px;
+        color: rgb(212, 50, 50);
+        font-size: 12px;
+        font-weight: 600;
+      }
+
+      .results__attribute {
+        width: fit-content;
+        border-radius: 5px;
+      }
+
+      .results__attribute_subjetivity,
+      .results__attribute_irony,
+      .results__attribute_agreement {
+        padding: 0.2rem 0.5rem;
+        background-color: rgb(76, 0, 255);
+      }
+
+      .results__attribute_polarity,
+      .results__attribute_confidence {
+        padding: 0.5rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.3rem;
+        background-color: rgb(213, 69, 218);
+      }
+      .results__attribute-title {
+        font-size: 12px;
+      }
+      .results__attribute-value {
+        font-size: 2rem;
+      }
+    </style>
   </head>
 
   <body>
-    <header>
-      <div class="">Logo</div>
-      <div class="">navigation</div>
-    </header>
+    <div class="container">
+      <header class="header">
+        <h1 class="header__title">Sentiment Analyzer</h1>
+        <h2 class="header__slogan">Discover the Emotions Behind the Words</h2>
+      </header>
+      <main class="main">
+        <section class="form-container">
+          <form class="form" onsubmit="return Client.handleSubmit(event)">
+            <input
+              class="form__input"
+              id="name"
+              type="text"
+              name="input"
+              value=""
+              onblur="return Client.onBlur(event)"
+              placeholder="Enter URL to blogs or articles"
+            />
+            <input
+              class="form__submit"
+              type="submit"
+              name=""
+              value="Analyze"
+              onclick="return Client.handleSubmit(event)"
+              onsubmit="return Client.handleSubmit(event)"
+            />
+          </form>
+        </section>
 
-    <main>
-      <section>
-        <form class="" onsubmit="return Client.handleSubmit(event)">
-          <input
-            id="name"
-            type="text"
-            name="input"
-            value=""
-            onblur="return Client.onBlur(event)"
-            placeholder="Name"
-          />
-          <input
-            type="submit"
-            name=""
-            value="submit"
-            onclick="return Client.handleSubmit(event)"
-            onsubmit="return Client.handleSubmit(event)"
-          />
-        </form>
-      </section>
+        <section class="results">
+          <div class="results__attribute-list">
+            <div class="results__attribute results__attribute_polarity">
+              <p class="results__attribute-title">Polarity</p>
+              <span class="results__attribute-value">😃</span>
+            </div>
+            <div class="results__attribute results__attribute_confidence">
+              <p class="results__attribute-title">Confidence</p>
+              <span class="results__attribute-value">98%</span>
+            </div>
+            <div class="results__attribute results__attribute_agreement">
+              Agreement
+            </div>
+            <div class="results__attribute results__attribute_subjetivity">
+              Subjetivity
+            </div>
+            <div class="results__attribute results__attribute_irony">Irony</div>
+          </div>
+          <div class="results__text">
+            <p class="results__text-content">
+              Lorem ipsum dolor sit amet
+              <span
+                style="
+                  background-color: rgba(235, 238, 57, 0.863);
+                  padding: 0.5rem 0.1rem;
+                "
+                >consectetur
+                <span
+                  style="
+                    background-color: rgba(3, 250, 24, 0.521);
+                    padding: 0.5rem 0.1rem;
+                  "
+                  >adipisicing</span
+                >
+                elit.</span
+              >
+              Culpa, dignissimos at? Ipsam natus delectus, culpa tempora
+              adipisci provident quaerat iure incidunt commodi error, aliquam
+              ratione nobis debitis iusto aut doloribus!
+            </p>
+            <div class="results__tag-list">
+              <div class="results__tag_strong-positive">Strong Positive</div>
+              <div class="results__tag_positive">Positive</div>
+              <div class="results__tag_neutral">Neutral</div>
+              <div class="results__tag_negative">Negative</div>
+              <div class="results__tag_strong-negative">Strong Negative</div>
+            </div>
+          </div>
+        </section>
+      </main>
 
-      <section>
-        <strong>Form Results:</strong>
-        <div id="results"></div>
-      </section>
-    </main>
-
-    <footer>
-      <p>This is a footer</p>
-    </footer>
+      <footer class="footer"></footer>
+    </div>
   </body>
 </html>
