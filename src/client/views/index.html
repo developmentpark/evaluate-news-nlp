@@ -2,44 +2,75 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8" />
-    <title>Test</title>
+    <title>Sentiment Analyzer</title>
   </head>
-
   <body>
-    <header>
-      <div class="">Logo</div>
-      <div class="">navigation</div>
-    </header>
+    <div class="container">
+      <header class="header">
+        <h1 class="title">Sentiment Analyzer</h1>
+        <h2 class="slogan">Discover the Emotions Behind the Words</h2>
+      </header>
+      <main class="main">
+        <section class="form-container">
+          <form class="form" onsubmit="return Client.handleSubmit(event)">
+            <input
+              class="input"
+              id="name"
+              type="text"
+              name="input"
+              value=""
+              onblur="return Client.onBlur(event)"
+              placeholder="Enter URL to blogs or articles"
+            />
+            <input
+              class="submit"
+              type="submit"
+              name=""
+              value="Analyze"
+              onclick="return Client.handleSubmit(event)"
+              onsubmit="return Client.handleSubmit(event)"
+            />
+          </form>
+        </section>
 
-    <main>
-      <section>
-        <form class="" onsubmit="return Client.handleSubmit(event)">
-          <input
-            id="name"
-            type="text"
-            name="input"
-            value=""
-            onblur="return Client.onBlur(event)"
-            placeholder="Name"
-          />
-          <input
-            type="submit"
-            name=""
-            value="submit"
-            onclick="return Client.handleSubmit(event)"
-            onsubmit="return Client.handleSubmit(event)"
-          />
-        </form>
-      </section>
+        <section class="results-section">
+          <div class="attributes-panel">
+            <div class="attribute_big">
+              <p class="title">Polarity</p>
+              <span class="value">😃</span>
+            </div>
+            <div class="attribute_big">
+              <p class="title">Confidence</p>
+              <span class="value">98%</span>
+            </div>
+            <div class="attribute_small">Agreement</div>
+            <div class="attribute_small">Subjetivity</div>
+            <div class="attribute_small">Irony</div>
+          </div>
+          <div class="text-panel">
+            <p class="text-panel__text">
+              Lorem ipsum dolor sit amet
+              <span class="highlight_positive"
+                >consectetur
+                <span class="highlight_strong-positive">adipisicing</span>
+                elit.</span
+              >
+              Culpa, dignissimos at? Ipsam natus delectus, culpa tempora
+              adipisci provident quaerat iure incidunt commodi error, aliquam
+              ratione nobis debitis iusto aut doloribus!
+            </p>
+            <div class="text-panel__tags">
+              <div class="tag_strong-positive">Strong Positive</div>
+              <div class="tag_positive">Positive</div>
+              <div class="tag_neutral">Neutral</div>
+              <div class="tag_negative">Negative</div>
+              <div class="tag_strong-negative">Strong Negative</div>
+            </div>
+          </div>
+        </section>
+      </main>
 
-      <section>
-        <strong>Form Results:</strong>
-        <div id="results"></div>
-      </section>
-    </main>
-
-    <footer>
-      <p>This is a footer</p>
-    </footer>
+      <footer class="footer"></footer>
+    </div>
   </body>
 </html>

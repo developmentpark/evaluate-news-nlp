@@ -1,12 +1,32 @@
-form {
-  border: 1px solid #545454;
-  border-radius: 3px;
-  padding: 40px;
+@import "base";
+
+.form-container {
+  width: 100%;
+  max-width: 700px;
 }
 
-input {
-  padding: 5px 20px;
+.form {
+  background-color: rgba($white-color, 0.4);
+  box-shadow: $box-shadow;
+  height: fit-content;
   width: 100%;
-  line-height: 16px;
-  margin: 10px 0;
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  border-radius: 10px;
+
+  .input {
+    flex: 1;
+    height: 36px;
+    border-radius: 10px 0 0 10px;
+    padding: 0.5rem;
+    font-size: 16px;
+    font-style: italic;
+    border: solid 1px $gray-color-5;
+    outline: none;
+  }
+
+  .submit {
+    @include button($border-radius: 0 10px 10px 0);
+  }
 }

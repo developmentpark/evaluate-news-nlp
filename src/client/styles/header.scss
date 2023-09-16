@@ -1,5 +1,22 @@
-header {
+@import "base";
+
+.header {
   display: flex;
-  justify-content: space-between;
-  padding: 10px 40px;
+  flex-direction: column;
+  align-items: center;
+  height: max-content;
+  padding: 2rem;
+  gap: 1.5rem;
+
+  .title {
+    font-size: 34px;
+    font-weight: 900;
+    text-shadow: $text-shadow;
+  }
+
+  .slogan {
+    font-size: 24px;
+    color: $white-color;
+    text-shadow: $text-shadow;
+  }
 }
