@@ -1,13 +1,13 @@
 import { getEl } from "../utils/domReader";
 import { isFormatUrlValid } from "../utils/checker";
 import { postData } from "./fetchService";
-import { renderResults } from "./render";
+import { renderResults, renderError } from "./render";
 
 function handleSubmit(event) {
   event.preventDefault();
   let formText = getEl("input").value;
   if (!isFormatUrlValid(formText)) {
-    return;
+    return renderError("error");
   }
   checkForName(formText);
   console.log("::: Form Submitted :::");
