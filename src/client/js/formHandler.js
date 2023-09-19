@@ -3,19 +3,18 @@ import { isFormatUrlValid } from "../utils/checker";
 import { postData } from "./fetchService";
 import { renderResults, renderError } from "./render";
 
+const apiUrl = "http://localhost:8080/test";
+
 function handleSubmit(event) {
   event.preventDefault();
-  let formText = getEl("input").value;
-  if (!isFormatUrlValid(formText)) {
-    return renderError("error");
+  let receivedUrl = getEl("input").value;
+  if (!isFormatUrlValid(receivedUrl)) {
+    renderError({ message: "Invalid format for URL." });
+    return;
   }
-  checkForName(formText);
-  console.log("::: Form Submitted :::");
-  postData("http://localhost:8080/test")
-    .then((res) => res.json())
-    .then(function (res) {
-      renderResults(res);
-    });
+  postData(apiUrl, { url: receivedUrl })
+    .then((res) => renderResults(res))
+    .catch((error) => renderError({ message: error.message }));
 }
 
 function onBlur(event) {
