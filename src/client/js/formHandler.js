@@ -1,14 +1,20 @@
-import { resultsView } from "./resultView";
+import { getEl } from "../utils/domReader";
+import { isFormatUrlValid } from "../utils/checker";
+import { postData } from "./fetchService";
+import { renderResults } from "./render";
 
 function handleSubmit(event) {
   event.preventDefault();
-  let formText = document.querySelector(".input").value;
+  let formText = getEl("input").value;
+  if (!isFormatUrlValid(formText)) {
+    return;
+  }
   checkForName(formText);
   console.log("::: Form Submitted :::");
-  fetch("http://localhost:8080/test")
+  postData("http://localhost:8080/test")
     .then((res) => res.json())
     .then(function (res) {
-      document.querySelector(".results-section").innerHTML = resultsView(res);
+      renderResults(res);
     });
 }
 
