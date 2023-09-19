@@ -17,7 +17,7 @@ function handleSubmit(event) {
 
 function resultsView(data) {
   const polarityToEmoticonMap = {
-    "P+": ["😃", "😁", "👍"],
+    "P+": ["😄", "😁", "👍"],
     P: ["🙂", "😃", "👌", "💖"],
     NEU: ["😐", "😶", "🤔", "🤷"],
     N: ["😞", "😔", "👎"],
