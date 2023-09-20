@@ -27,6 +27,10 @@ app.get("/test", function (req, res) {
   res.send(mockAPIResponse);
 });
 
+app.post("/test", function (req, res) {
+  res.send(mockAPIResponse);
+});
+
 app.post("/api", async function (req, res) {
   const receivedUrl = req.body.url;
   const params = {
