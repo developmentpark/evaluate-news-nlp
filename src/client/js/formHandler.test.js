@@ -3,6 +3,9 @@ import { getEl } from "../utils/domReader";
 import { isFormatUrlValid } from "../utils/checker";
 import { postData } from "./fetchService";
 import { renderError, renderResults } from "./render";
+import dotenv from "dotenv";
+
+dotenv.config({ path: ".env.test" });
 
 jest.mock("../utils/domReader");
 jest.mock("../utils/checker");
@@ -53,7 +56,7 @@ describe("handleSubmit function", () => {
     getEl.mockReturnValue({ value: validUrl });
     isFormatUrlValid.mockReturnValue(true);
     handleSubmit({ preventDefault: jest.fn() });
-    expect(postData).toHaveBeenCalledWith("http://localhost:8080/test", {
+    expect(postData).toHaveBeenCalledWith(process.env.API_URL, {
       url: validUrl,
     });
   });
