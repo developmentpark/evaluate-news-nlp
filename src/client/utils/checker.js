@@ -1,5 +1,6 @@
 function isFormatUrlValid(url) {
-  return true;
+  const urlPattern = /^(http|https):\/\/(.*)/;
+  return urlPattern.test(url);
 }
 
 export { isFormatUrlValid };
