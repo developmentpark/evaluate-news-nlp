@@ -17,8 +17,4 @@ function handleSubmit(event) {
     .catch((error) => renderError({ message: error.message }));
 }
 
-function onBlur(event) {
-  // TODO
-}
-
-export { handleSubmit, onBlur };
+export { handleSubmit };
