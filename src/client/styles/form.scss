@@ -3,6 +3,15 @@
 .form-container {
   width: 100%;
   max-width: 700px;
+  padding-top: 7rem;
+
+  .slogan {
+    font-size: 32px;
+    color: $white-color;
+    text-shadow: $text-shadow;
+    text-align: center;
+    padding-bottom: 4rem;
+  }
 }
 
 .form {
