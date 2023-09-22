@@ -107,7 +107,6 @@
 
 .attribute_small {
   @extend %attribute;
-  background-color: #40a8c2;
   font-size: 14px;
   padding: 0.5rem;
 }
@@ -118,7 +117,6 @@
   align-items: center;
 
   .title {
-    background-color: #c840d4;
     font-size: 14px;
     padding: 0.5rem;
     border-radius: 5px 0 0 5px;
@@ -132,4 +130,30 @@
     padding: 0.5rem;
     border-radius: 0 5px 5px 0;
   }
+}
+
+.attribute_strong-positive {
+  background-color: rgba($strong-positive-polarity-color, 0.8);
+  color: $gray-color-1;
+}
+
+.attribute_positive {
+  background-color: rgba($positive-polarity-color, 0.8);
+  color: $gray-color-1;
+}
+
+.attribute_neutral {
+  background-color: rgba($neutral-polarity-color, 0.8);
+}
+
+.attribute_negative {
+  background-color: rgba($negative-polarity-color, 0.9);
+}
+
+.attribute_strong-negative {
+  background-color: rgba($strong-negative-polarity-color, 0.9);
+}
+
+.attribute_none {
+  background-color: rgba($none-polarity-color, 1);
 }
