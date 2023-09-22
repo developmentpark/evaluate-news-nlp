@@ -1,7 +1,7 @@
 @import "base";
 
 @mixin highlight($color: $neutral-polarity-color) {
-  background-color: rgba($color, 0.6);
+  background-color: $color;
   padding: 0.1rem 0.2rem;
 }
 
@@ -29,40 +29,41 @@
   width: 100%;
   max-width: 700px;
   display: flex;
+  flex-direction: column;
   gap: 1rem;
 
-  %results__box {
-    background-color: rgba($white-color, 0.4);
-    box-shadow: $box-shadow;
-    border-radius: 10px;
-    padding: 1.5rem;
-    display: flex;
-    flex-direction: column;
-  }
-
   .attributes-panel {
-    @extend %results__box;
-    gap: 0.2rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
   }
 
   .text-panel {
-    @extend %results__box;
-    font-size: 16px;
-    line-height: 24px;
-    color: $gray-color-1;
-    justify-content: space-between;
+    display: flex;
     gap: 1rem;
   }
 }
 
+.text-panel__text {
+  line-height: 28px;
+  background-color: rgba($white-color, 0.4);
+  box-shadow: $box-shadow;
+  padding: 1.5rem;
+  border-radius: 10px;
+  font-size: 16px;
+  line-height: 28px;
+  color: $gray-color-1;
+}
+
 .text-panel__tags {
   display: flex;
+  flex-direction: column;
   gap: 0.5rem;
-  flex-wrap: wrap;
+  height: fit-content;
 
   %tag {
     width: max-content;
-    padding: 0.1rem 0.5rem;
+    padding: 0.5rem;
     border-radius: 6px;
     font-size: 12px;
     font-weight: 600;
@@ -102,28 +103,33 @@
 %attribute {
   width: fit-content;
   border-radius: 5px;
-  padding: 0.5rem;
-
-  .title {
-    font-size: 12px;
-  }
-
-  .value {
-    font-size: 2rem;
-  }
 }
 
 .attribute_small {
   @extend %attribute;
-  background-color: #405ec2;
+  background-color: #40a8c2;
   font-size: 14px;
+  padding: 0.5rem;
 }
 
 .attribute_big {
   @extend %attribute;
-  background-color: #c840d4;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  gap: 0.3rem;
+
+  .title {
+    background-color: #c840d4;
+    font-size: 14px;
+    padding: 0.5rem;
+    border-radius: 5px 0 0 5px;
+  }
+
+  .value {
+    font-size: 14px;
+    background-color: rgba($white-color, 0.8);
+    color: $gray-color-1;
+    font-weight: 900;
+    padding: 0.5rem;
+    border-radius: 0 5px 5px 0;
+  }
 }
