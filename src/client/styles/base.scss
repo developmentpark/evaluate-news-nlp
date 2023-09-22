@@ -52,3 +52,12 @@ body {
   display: flex;
   flex-direction: column;
 }
+
+a {
+  text-decoration: none;
+  color: $primary-color;
+
+  &:hover {
+    color: #c13cf1;
+  }
+}
