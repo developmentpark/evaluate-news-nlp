@@ -1,10 +1,16 @@
 @import "base";
 
 .footer {
-  height: 200px;
+  height: max-content;
   color: $gray-color-5;
   text-align: center;
-  padding-top: 3rem;
+  padding: 3rem;
   font-size: 12px;
   margin-top: 2rem;
+
+  .heart-icon {
+    fill: rgb(245, 45, 45);
+    position: relative;
+    top: 2px;
+  }
 }
