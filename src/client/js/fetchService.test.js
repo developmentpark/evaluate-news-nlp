@@ -40,9 +40,11 @@ describe("postData function", () => {
     expect(urlArg).toEqual(url);
     const optionsArg = fetch.mock.calls[0][1];
     expect(typeof optionsArg).toBe("object");
-    expect(optionsArg.hasOwnProperty("body")).toBe(true);
+    expect(Object.prototype.hasOwnProperty.call(optionsArg, "body")).toBe(true);
     expect(optionsArg.body).toEqual(JSON.stringify(data));
-    expect(optionsArg.hasOwnProperty("method")).toBe(true);
+    expect(Object.prototype.hasOwnProperty.call(optionsArg, "method")).toBe(
+      true,
+    );
     expect(optionsArg.method.toLowerCase()).toEqual("post");
   });
 });
