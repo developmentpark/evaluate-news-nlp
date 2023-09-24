@@ -61,54 +61,57 @@
   flex-direction: column;
   gap: 0.5rem;
   height: fit-content;
+}
 
-  %tag {
-    width: max-content;
-    padding: 0.5rem;
-    border-radius: 6px;
-    font-size: 12px;
-    font-weight: 600;
-  }
+%tag {
+  width: max-content;
+  padding: 0.5rem;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+}
 
-  @mixin tag-colorized($color: $neutral) {
-    background-color: rgb($color, 0.25);
-    color: $color;
-  }
+@mixin tag-colorized($color: $neutral) {
+  background-color: $color;
+  color: $gray-color-5;
+}
 
-  .tag_strong-positive {
-    @extend %tag;
-    @include tag-colorized($color: $strong-positive-polarity-color);
-  }
+.tag_strong-positive {
+  @extend %tag;
+  @include tag-colorized($color: $strong-positive-polarity-color);
+  color: $gray-color-2;
+}
 
-  .tag_positive {
-    @extend %tag;
-    @include tag-colorized($color: $positive-polarity-color);
-  }
+.tag_positive {
+  @extend %tag;
+  @include tag-colorized($color: $positive-polarity-color);
+  color: $gray-color-2;
+}
 
-  .tag_neutral {
-    @extend %tag;
-    @include tag-colorized($color: $neutral-polarity-color);
-  }
+.tag_neutral {
+  @extend %tag;
+  @include tag-colorized($color: $neutral-polarity-color);
+}
 
-  .tag_negative {
-    @extend %tag;
-    @include tag-colorized($color: $negative-polarity-color);
-  }
+.tag_negative {
+  @extend %tag;
+  @include tag-colorized($color: $negative-polarity-color);
+}
 
-  .tag_strong-negative {
-    @extend %tag;
-    @include tag-colorized($color: $strong-negative-polarity-color);
-  }
+.tag_strong-negative {
+  @extend %tag;
+  @include tag-colorized($color: $strong-negative-polarity-color);
 }
 
 %attribute {
   width: fit-content;
   border-radius: 5px;
+  font-size: 12px;
 }
 
 .attribute_small {
   @extend %attribute;
-  font-size: 14px;
+  font-weight: 600;
   padding: 0.5rem;
 }
 
@@ -118,13 +121,12 @@
   align-items: center;
 
   .title {
-    font-size: 14px;
     padding: 0.5rem;
     border-radius: 5px 0 0 5px;
+    font-weight: 600;
   }
 
   .value {
-    font-size: 14px;
     background-color: rgba($white-color, 0.8);
     color: $gray-color-1;
     font-weight: 900;
@@ -135,12 +137,12 @@
 
 .attribute_strong-positive {
   background-color: rgba($strong-positive-polarity-color, 0.8);
-  color: $gray-color-1;
+  color: $gray-color-2;
 }
 
 .attribute_positive {
   background-color: rgba($positive-polarity-color, 0.8);
-  color: $gray-color-1;
+  color: $gray-color-2;
 }
 
 .attribute_neutral {
