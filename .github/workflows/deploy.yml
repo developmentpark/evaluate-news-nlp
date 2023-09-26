@@ -54,7 +54,7 @@ jobs:
       - name: 🚚 Deliver server artifact
         run: |
           mkdir build-server
-          cp -r package.json package-lock.json src/server build build-server/
+          cp -r package.json package-lock.json src/server .git build build-server/
           ls build-server
         working-directory: ${{ github.workspace }}
       - uses: actions/upload-artifact@v3.1.3
@@ -88,7 +88,7 @@ jobs:
     needs: build
     steps:
       - name: Download server artifact
-        uses: actions/download-artifact@v2.1.1
+        uses: actions/download-artifact@v3.0.2
         with:
           name: server-artifact
           path: "."
