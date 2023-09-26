@@ -17,7 +17,7 @@ app.get("/", function (req, res) {
 
 // designates what port the app will listen to for incoming requests
 const host = process.env.SERVER_HOST;
-const port = process.env.SERVER_PORT;
+const port = process.env.PORT || process.env.SERVER_PORT;
 app.listen(port, function () {
   console.log(`Server running on ${host}:${port}`);
 });
