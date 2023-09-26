@@ -2,10 +2,7 @@ var path = require("path");
 const express = require("express");
 const cors = require("cors");
 const mockAPIResponse = require("./mockAPI.js");
-const dotenv = require("dotenv");
 const morgan = require("morgan");
-
-dotenv.config({ path: ".env" });
 
 const app = express();
 
