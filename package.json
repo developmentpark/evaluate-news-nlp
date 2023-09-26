@@ -1,5 +1,5 @@
 {
-  "name": "example-project",
+  "name": "sentiment-analyzer",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
@@ -10,10 +10,18 @@
     "build-prod": "NODE_ENV=production webpack --config webpack.config.js",
     "build-dev": "NODE_ENV=development webpack serve --config webpack.config.js"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": "",
+  "keywords": [
+    "sentiment analysis",
+    "frontend",
+    "webpack",
+    "API",
+    "NLP",
+    "udacity"
+  ],
+  "author": "developmentpark",
+  "license": "MIT",
+  "repository": "https://github.com/developmentpark/evaluate-news-nlp",
+  "description": "Explore text emotions, gain insights, and uncover sentiments effortlessly",
   "dependencies": {
     "cors": "^2.8.5",
     "css-minimizer-webpack-plugin": "^5.0.1",
