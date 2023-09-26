@@ -79,7 +79,7 @@ jobs:
         working-directory: ${{ github.workspace }}
         # You may pin to the exact commit or the version.
         # uses: behe/heroku-build@e062ad4e4170200099c6e739c88f74dfe8ea6500
-        uses: behe/heroku-build@v1.2
+      - uses: behe/heroku-build@v1.2
         with:
           # Name of Heroku application
           app-name: ${{secrets.HEROKU_APP_NAME}}
