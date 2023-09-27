@@ -6,7 +6,7 @@
     "lint": "eslint ./src",
     "format": "npx prettier . --write",
     "test": "jest",
-    "start": "node src/server/index.js",
+    "start": "node -r dotenv/config src/server/index.js",
     "build-prod": "NODE_ENV=production webpack --config webpack.config.js",
     "build-dev": "NODE_ENV=development webpack serve --config webpack.config.js"
   },
@@ -30,7 +30,8 @@
     "morgan": "^1.10.0",
     "webpack": "^5.88.2",
     "webpack-cli": "^5.1.4",
-    "webpack-merge": "^5.9.0"
+    "webpack-merge": "^5.9.0",
+    "dotenv-webpack": "^8.0.1"
   },
   "devDependencies": {
     "@babel/core": "^7.22.17",
@@ -39,7 +40,6 @@
     "clean-webpack-plugin": "^4.0.0",
     "css-loader": "^6.8.1",
     "dotenv": "^16.3.1",
-    "dotenv-webpack": "^8.0.1",
     "eslint": "^8.50.0",
     "eslint-plugin-jest": "^27.4.0",
     "eslint-webpack-plugin": "^4.0.1",
