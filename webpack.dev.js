@@ -1,6 +1,5 @@
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const ESLintPlugin = require("eslint-webpack-plugin");
-const dotenv = require("dotenv-webpack");
 
 module.exports = {
   mode: "development",
@@ -37,8 +36,5 @@ module.exports = {
       protectWebpackAssets: false,
     }),
     new ESLintPlugin(),
-    new dotenv({
-      path: ".env",
-    }),
   ],
 };
