@@ -52,7 +52,9 @@ and tools that facilitated development, optimization and code quality:
 
 ## How to Use
 
-If you want to use the Sentiment Analyzer, simply follow these steps:
+**Using the local version (Development)**
+
+If you'd like to run the Sentiment Analyzer locally for development or customization purposes, follow these steps:
 
 - Clone this repository to your local machine.
 - Configure environment variables:
@@ -67,6 +69,10 @@ If you want to use the Sentiment Analyzer, simply follow these steps:
   ```
 - Install dependencies using `npm install`.
 - Run the application with `npm start`.
+
+**Using the live version**
+
+You can access the <a href="https://developmentpark.github.io/evaluate-news-nlp/" style="color:#4e4e4e;background-color:#38f21d;padding:6px 10px;font-weight:600;border-radius:6px;"><button>live version</button></a> 🚀
 
 ## License
 
