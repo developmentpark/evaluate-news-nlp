@@ -23,6 +23,7 @@ module.exports = {
     }),
     new dotenv({
       path: ".env",
+      allowEmptyValues: true,
     }),
   ],
 };
