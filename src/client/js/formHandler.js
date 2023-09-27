@@ -3,7 +3,7 @@ import { isFormatUrlValid } from "../utils/checker";
 import { postData } from "./fetchService";
 import { renderResults, renderError } from "./render";
 
-const apiUrl = process.env.API_URL || "http://localhost:8080/test";
+const apiUrl = process.env.API_URL;
 
 function handleSubmit(event) {
   event.preventDefault();
