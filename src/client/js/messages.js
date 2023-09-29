@@ -1,10 +1,20 @@
 const messages = {
-  SUCCESS: "Analysis completed successfully!",
-  INVALID_INPUT: "Invalid format for URL.",
-  NETWORK_ERROR:
-    "Sorry, we were unable to complete your request at this time. Please try again later.",
-  SERVER_ERROR:
-    "We're sorry, something went wrong on our server. Please try again later.",
+  SUCCESS: {
+    text: "Analysis completed successfully!",
+    type: "success",
+  },
+  INVALID_INPUT: {
+    text: "Invalid format for URL.",
+    type: "danger",
+  },
+  NETWORK_ERROR: {
+    text: "Sorry, we were unable to complete your request at this time. Please try again later.",
+    type: "danger",
+  },
+  SERVER_ERROR: {
+    text: "We're sorry, something went wrong on our server. Please try again later.",
+    type: "danger",
+  },
 };
 
 export { messages };
