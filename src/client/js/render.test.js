@@ -107,11 +107,11 @@ describe("renderAlert", () => {
     renderAlert(message);
     expect(setTimeout).toHaveBeenCalledTimes(1);
     expect(setTimeout).toHaveBeenLastCalledWith(expect.any(Function), timeout);
-    expect(el.classList.remove).not.toBeCalledWith("open");
+    expect(el.classList.remove).not.toHaveBeenCalledWith("open");
 
     await jest.runAllTimers();
 
-    expect(el.classList.remove).toBeCalledWith("open");
+    expect(el.classList.remove).toHaveBeenCalledWith("open");
   });
 
   test("should close a previous alert immediately before opening a new one", async () => {
