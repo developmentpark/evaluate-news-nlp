@@ -15,7 +15,8 @@ describe("postData function", () => {
     const url = "http://localhost:8080/test";
     const data = {};
     const result = await postData(url, data);
-    expect(result).toEqual({ key: "pass" });
+    const json = await result.json();
+    expect(json).toEqual({ key: "pass" });
     expect(fetch).toHaveBeenCalledTimes(1);
   });
 
