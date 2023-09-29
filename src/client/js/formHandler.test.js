@@ -67,6 +67,19 @@ describe("handleSubmit function", () => {
     expect(renderAlert).toHaveBeenCalledWith(messages.NETWORK_ERROR);
   });
 
+  test("should display success message on successful resolution", async () => {
+    getEl.mockReturnValue({ value: "valid_url" });
+    isFormatUrlValid.mockReturnValue(true);
+    const data = { res: "test-data" };
+    postData.mockResolvedValue({ json: () => data, ok: true, status: 200 });
+    handleSubmit({ preventDefault: jest.fn() });
+    await Promise.resolve();
+    await Promise.resolve();
+    await Promise.resolve();
+    expect(renderAlert).toHaveBeenCalledTimes(1);
+    expect(renderAlert).toHaveBeenCalledWith(messages.SUCCESS);
+  });
+
   test("should call postData with localhost and received url", () => {
     const validUrl = "valid_url";
     getEl.mockReturnValue({ value: validUrl });

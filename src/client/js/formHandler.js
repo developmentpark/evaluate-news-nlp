@@ -20,7 +20,10 @@ function handleSubmit(event) {
       }
       return res.json();
     })
-    .then((data) => renderResults(data))
+    .then((data) => {
+      renderResults(data);
+      renderAlert(messages.SUCCESS);
+    })
     .catch((error) => renderAlert(messages.NETWORK_ERROR));
 }
 
