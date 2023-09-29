@@ -2,7 +2,7 @@ import { handleSubmit } from "./formHandler";
 import { getEl } from "../utils/domReader";
 import { isFormatUrlValid } from "../utils/checker";
 import { postData } from "./fetchService";
-import { renderError, renderResults } from "./render";
+import { renderAlert, renderResults } from "./render";
 import dotenv from "dotenv";
 
 dotenv.config({ path: ".env.test" });
@@ -17,11 +17,11 @@ describe("handleSubmit function", () => {
     jest.clearAllMocks();
   });
 
-  test("should call renderError if is invalid URL", () => {
+  test("should call renderAlert if is invalid URL", () => {
     getEl.mockReturnValue({ value: "invalid_url" });
     isFormatUrlValid.mockReturnValue(false);
     handleSubmit({ preventDefault: jest.fn() });
-    expect(renderError).toHaveBeenCalled();
+    expect(renderAlert).toHaveBeenCalled();
   });
 
   test("should call postData if is valid URL", async () => {
@@ -44,7 +44,7 @@ describe("handleSubmit function", () => {
     expect(renderResults).toHaveBeenCalled();
   });
 
-  test("should call renderError if postData rejects", async () => {
+  test("should call renderAlert if postData rejects", async () => {
     getEl.mockReturnValue({ value: "valid_url" });
     isFormatUrlValid.mockReturnValue(true);
     postData.mockImplementation(() => Promise.reject(new Error()));
@@ -52,7 +52,7 @@ describe("handleSubmit function", () => {
     await Promise.resolve();
     await Promise.resolve();
     await Promise.resolve();
-    expect(renderError).toHaveBeenCalledTimes(1);
+    expect(renderAlert).toHaveBeenCalledTimes(1);
   });
 
   test("should call postData with localhost and received url", () => {
