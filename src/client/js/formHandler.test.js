@@ -37,18 +37,22 @@ describe("handleSubmit function", () => {
     getEl.mockReturnValue({ value: "valid_url" });
     isFormatUrlValid.mockReturnValue(true);
     const data = { res: "test-data" };
-    postData.mockResolvedValue(data);
-    await handleSubmit({ preventDefault: jest.fn() });
+    postData.mockResolvedValueOnce({ json: () => data });
+    handleSubmit({ preventDefault: jest.fn() });
+    await Promise.resolve();
+    await Promise.resolve();
     expect(renderResults).toHaveBeenCalled();
   });
 
   test("should call renderError if postData rejects", async () => {
     getEl.mockReturnValue({ value: "valid_url" });
     isFormatUrlValid.mockReturnValue(true);
-    postData.mockRejectedValueOnce(new Error());
-    await handleSubmit({ preventDefault: jest.fn() });
+    postData.mockImplementation(() => Promise.reject(new Error()));
+    handleSubmit({ preventDefault: jest.fn() });
     await Promise.resolve();
-    expect(renderError).toHaveBeenCalled();
+    await Promise.resolve();
+    await Promise.resolve();
+    expect(renderError).toHaveBeenCalledTimes(1);
   });
 
   test("should call postData with localhost and received url", () => {
@@ -61,13 +65,15 @@ describe("handleSubmit function", () => {
     });
   });
 
-  test("should call renderResult with with received data from postData", async () => {
+  test("should call renderResult with received data from postData", async () => {
     const validUrl = "valid_url";
     getEl.mockReturnValue({ value: validUrl });
     isFormatUrlValid.mockReturnValue(true);
     const data = { res: "test-data" };
-    postData.mockResolvedValue(data);
-    await handleSubmit({ preventDefault: jest.fn() });
+    postData.mockResolvedValue({ json: () => data });
+    handleSubmit({ preventDefault: jest.fn() });
+    await Promise.resolve();
+    await Promise.resolve();
     expect(renderResults).toHaveBeenCalledWith(data);
   });
 
