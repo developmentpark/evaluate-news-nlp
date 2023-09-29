@@ -4,6 +4,7 @@ import { isFormatUrlValid } from "../utils/checker";
 import { postData } from "./fetchService";
 import { renderAlert, renderResults } from "./render";
 import dotenv from "dotenv";
+import { messages } from "./messages";
 
 dotenv.config({ path: ".env.test" });
 
@@ -33,11 +34,11 @@ describe("handleSubmit function", () => {
     expect(postData).toHaveBeenCalled();
   });
 
-  test("should call renderResults if postData resolves", async () => {
+  test("should call renderResults if postData resolves with status 200", async () => {
     getEl.mockReturnValue({ value: "valid_url" });
     isFormatUrlValid.mockReturnValue(true);
     const data = { res: "test-data" };
-    postData.mockResolvedValueOnce({ json: () => data });
+    postData.mockResolvedValueOnce({ json: () => data, ok: true, status: 200 });
     handleSubmit({ preventDefault: jest.fn() });
     await Promise.resolve();
     await Promise.resolve();
@@ -55,6 +56,17 @@ describe("handleSubmit function", () => {
     expect(renderAlert).toHaveBeenCalledTimes(1);
   });
 
+  test("should handle non status 200 with a error network message", async () => {
+    getEl.mockReturnValue({ value: "valid_url" });
+    isFormatUrlValid.mockReturnValue(true);
+    postData.mockImplementation(() => Promise.resolve({ status: 404 }));
+    handleSubmit({ preventDefault: jest.fn() });
+    await Promise.resolve();
+    await Promise.resolve();
+    await Promise.resolve();
+    expect(renderAlert).toHaveBeenCalledWith(messages.NETWORK_ERROR);
+  });
+
   test("should call postData with localhost and received url", () => {
     const validUrl = "valid_url";
     getEl.mockReturnValue({ value: validUrl });
@@ -70,7 +82,7 @@ describe("handleSubmit function", () => {
     getEl.mockReturnValue({ value: validUrl });
     isFormatUrlValid.mockReturnValue(true);
     const data = { res: "test-data" };
-    postData.mockResolvedValue({ json: () => data });
+    postData.mockResolvedValue({ json: () => data, ok: true, status: 200 });
     handleSubmit({ preventDefault: jest.fn() });
     await Promise.resolve();
     await Promise.resolve();

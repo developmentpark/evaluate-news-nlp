@@ -14,8 +14,13 @@ function handleSubmit(event) {
     return;
   }
   postData(apiUrl, { url: receivedUrl })
-    .then((data) => data.json())
-    .then((res) => renderResults(res))
+    .then((res) => {
+      if (!res.ok) {
+        throw new Error({ status: res.status });
+      }
+      return res.json();
+    })
+    .then((data) => renderResults(data))
     .catch((error) => renderAlert(messages.NETWORK_ERROR));
 }
 
