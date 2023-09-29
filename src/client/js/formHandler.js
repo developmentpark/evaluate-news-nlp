@@ -16,7 +16,9 @@ function handleSubmit(event) {
   postData(apiUrl, { url: receivedUrl })
     .then((res) => {
       if (!res.ok) {
-        throw new Error({ status: res.status });
+        const error = new Error();
+        error.status = res.status;
+        throw error;
       }
       return res.json();
     })
@@ -24,7 +26,11 @@ function handleSubmit(event) {
       renderResults(data);
       renderAlert(messages.SUCCESS);
     })
-    .catch((error) => renderAlert(messages.NETWORK_ERROR));
+    .catch((error) => {
+      error.status == 500
+        ? renderAlert(messages.SERVER_ERROR)
+        : renderAlert(messages.NETWORK_ERROR);
+    });
 }
 
 export { handleSubmit };

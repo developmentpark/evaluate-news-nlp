@@ -80,6 +80,43 @@ describe("handleSubmit function", () => {
     expect(renderAlert).toHaveBeenCalledWith(messages.SUCCESS);
   });
 
+  test("should render a network error message on non-200 response", async () => {
+    getEl.mockReturnValue({ value: "valid_url" });
+    isFormatUrlValid.mockReturnValue(true);
+    postData.mockImplementation(() =>
+      Promise.resolve({ ok: true, status: 404 }),
+    );
+    handleSubmit({ preventDefault: jest.fn() });
+    await Promise.resolve();
+    await Promise.resolve();
+    await Promise.resolve();
+    expect(renderAlert).toHaveBeenCalledWith(messages.NETWORK_ERROR);
+  });
+
+  test("should render server error message on status 500", async () => {
+    getEl.mockReturnValue({ value: "valid_url" });
+    isFormatUrlValid.mockReturnValue(true);
+    postData.mockResolvedValue({ ok: false, status: 500 });
+    handleSubmit({ preventDefault: jest.fn() });
+    await Promise.resolve();
+    await Promise.resolve();
+    await Promise.resolve();
+    expect(renderAlert).toHaveBeenCalledTimes(1);
+    expect(renderAlert).toHaveBeenCalledWith(messages.SERVER_ERROR);
+  });
+
+  test("should render an network error message when an exception is thrown", async () => {
+    getEl.mockReturnValue({ value: "valid_url" });
+    isFormatUrlValid.mockReturnValue(true);
+    postData.mockRejectedValueOnce(new Error());
+    handleSubmit({ preventDefault: jest.fn() });
+    await Promise.resolve();
+    await Promise.resolve();
+    await Promise.resolve();
+    expect(renderAlert).toHaveBeenCalledTimes(1);
+    expect(renderAlert).toHaveBeenCalledWith(messages.NETWORK_ERROR);
+  });
+
   test("should call postData with localhost and received url", () => {
     const validUrl = "valid_url";
     getEl.mockReturnValue({ value: validUrl });
