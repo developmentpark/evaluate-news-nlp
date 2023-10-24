@@ -10,7 +10,7 @@ function renderResults(data) {
 
 function renderLoadingIndicator(enable = true) {
   document.querySelector(".results-section").innerHTML = enable
-    ? "<div>Loading...</div>"
+    ? "<div class='spinner'></div>"
     : "";
 }
 
