@@ -1,7 +1,7 @@
 import { getEl } from "../utils/domReader";
 import { isFormatUrlValid } from "../utils/checker";
 import { postData } from "./fetchService";
-import { renderResults, renderError } from "./render";
+import { renderResults, renderError, renderLoadingIndicator } from "./render";
 
 const apiUrl = process.env.API_URL || "http://localhost:8080/test";
 
@@ -12,9 +12,16 @@ function handleSubmit(event) {
     renderError({ message: "Invalid format for URL." });
     return;
   }
+  renderLoadingIndicator();
   postData(apiUrl, { url: receivedUrl })
-    .then((res) => renderResults(res))
-    .catch((error) => renderError({ message: error.message }));
+    .then((res) => {
+      renderLoadingIndicator(false);
+      renderResults(res);
+    })
+    .catch((error) => {
+      renderLoadingIndicator(false);
+      renderError({ message: error.message });
+    });
 }
 
 export { handleSubmit };

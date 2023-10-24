@@ -8,4 +8,10 @@ function renderResults(data) {
   document.querySelector(".results-section").innerHTML = resultsView(data);
 }
 
-export { renderError, renderResults };
+function renderLoadingIndicator(enable = true) {
+  document.querySelector(".results-section").innerHTML = enable
+    ? "<div>Loading...</div>"
+    : "";
+}
+
+export { renderError, renderResults, renderLoadingIndicator };
