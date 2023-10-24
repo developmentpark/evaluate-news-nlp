@@ -27,7 +27,10 @@ app.get("/test", function (req, res) {
 });
 
 app.post("/test", function (req, res) {
-  res.send(mockAPIResponse);
+  const delay = 4000;
+  setTimeout(() => {
+    res.send(mockAPIResponse);
+  }, delay);
 });
 
 app.post("/api", async function (req, res) {
