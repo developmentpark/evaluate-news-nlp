@@ -6,3 +6,4 @@ import "./footer.scss";
 import "./form.scss";
 import "./result.scss";
 import "./spinner.scss";
+import "./alert.scss";
