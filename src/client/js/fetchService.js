@@ -8,7 +8,7 @@ async function postData(url, data) {
       },
       body: JSON.stringify(data),
     });
-    return await res.json();
+    return res;
   } catch (error) {
     throw new Error(error.message);
   }

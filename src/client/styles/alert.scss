@@ -1,0 +1,36 @@
+@import "base";
+
+%alert {
+  width: 100%;
+  border-radius: 4px;
+  position: fixed;
+  top: -50px;
+  padding: 1rem 1.5rem;
+  font-size: 16px;
+  transition: top 300ms ease-in-out;
+}
+
+@mixin colorize($background, $text, $border) {
+  background-color: $background;
+  color: $text;
+  border: solid 1px $border;
+}
+
+.alert {
+  @extend %alert;
+  @include colorize($gray-color-5, $gray-color-1, $gray-color-5);
+}
+
+.alert_success {
+  @extend %alert;
+  @include colorize($bg-success, $text-success, $border-success);
+}
+
+.alert_danger {
+  @extend %alert;
+  @include colorize($bg-danger, $text-danger, $border-danger);
+}
+
+.alert.open {
+  top: 0px;
+}
