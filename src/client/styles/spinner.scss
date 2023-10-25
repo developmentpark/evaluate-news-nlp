@@ -1,0 +1,28 @@
+@import "base";
+
+$spinner-width: 40px;
+$spinner-height: 40px;
+$spinner-color: $white-color;
+$spinner-border-width: 6px;
+
+.spinner {
+  width: $spinner-width;
+  height: $spinner-height;
+  border: solid $spinner-border-width $spinner-color;
+  border-radius: 100%;
+  border-left-color: transparent;
+  animation-name: spin;
+  animation-duration: 600ms;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  margin: auto;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

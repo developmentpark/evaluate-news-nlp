@@ -23,4 +23,10 @@ function renderResults(data) {
   document.querySelector(".results-section").innerHTML = resultsView(data);
 }
 
-export { renderResults, renderAlert };
+function renderLoadingIndicator(enable = true) {
+  document.querySelector(".results-section").innerHTML = enable
+    ? "<div class='spinner'></div>"
+    : "";
+}
+
+export { renderResults, renderAlert, renderLoadingIndicator };
