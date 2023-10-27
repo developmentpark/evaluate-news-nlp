@@ -12,6 +12,7 @@ $gray-color-3: rgb(126, 126, 126);
 $gray-color-4: rgb(172, 172, 172);
 $gray-color-5: rgb(240, 240, 240);
 $primary-color: #c157e7;
+$primary-color-2: #c13cf1;
 $box-shadow: 0px 6px 18px 0.1px #8a2be259;
 $text-shadow: 0px 2px #8a2be259;
 $bg-danger: #f8d7da;
@@ -20,6 +21,14 @@ $text-danger: #7e2d34;
 $text-success: #1a5b29;
 $border-danger: #f5c6cb;
 $border-success: #c3e6cb;
+
+body.dark-theme {
+  background: linear-gradient(
+    315deg,
+    rgb(22, 25, 163) 0%,
+    rgb(145, 43, 154) 100%
+  );
+}
 
 body {
   background: linear-gradient(
