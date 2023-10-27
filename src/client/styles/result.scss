@@ -160,3 +160,25 @@
 .attribute_none {
   background-color: rgba($none-polarity-color, 1);
 }
+
+.dark-theme {
+  .text-panel__text {
+    background-color: rgba($gray-color-1, 0.4);
+    color: $white-color;
+  }
+
+  .highlight_positive {
+    color: $gray-color-1;
+  }
+
+  .highlight_strong-positive {
+    color: $gray-color-1;
+  }
+
+  .attribute_big {
+    .value {
+      background-color: rgba($gray-color-1, 0.8);
+      color: $white-color;
+    }
+  }
+}

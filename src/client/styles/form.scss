@@ -39,3 +39,20 @@
     @include button($border-radius: 0 10px 10px 0);
   }
 }
+
+.dark-theme {
+  .form {
+    background-color: rgba($gray-color-1, 0.4);
+    .input {
+      background-color: $gray-color-1;
+      border-color: $gray-color-2;
+      color: $white-color;
+    }
+    .submit {
+      background-color: $primary-color-2;
+      &:hover {
+        background-color: $primary-color;
+      }
+    }
+  }
+}
