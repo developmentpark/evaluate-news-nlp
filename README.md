@@ -1,14 +1,15 @@
-> 🌱 This project stands as a humble testament to the dedication and perseverance in my web development journey. It mirrors the invaluable knowledge and skills cultivated during my enriching experience with the Udacity Frontend Nanodegree program.
+> 🌱 This project is the result of my commitment and continuous learning in the field of web development. During my experience in the Udacity Frontend Nanogree program, I acquired valuable skills that I have applied in this, my fourth project, to overcome technical challenges and achieve concrete results. Throughout this journey, I have cultivated knowledge in cutting-edge technologies and development approaches, and I am excited to share the impact of this experience in this project.
 
 <h1 align="center">Sentiment Analyzer</h1>
 
-<p style="display:flex;gap:4px">
+<p>
 <a href="https://github.com/developmentpark/evaluate-news-nlp/actions/workflows/ci.yml"><img src="https://github.com/developmentpark/evaluate-news-nlp/actions/workflows/ci.yml/badge.svg?branch=dev"/></a>
 <a href="https://github.com/developmentpark/evaluate-news-nlp/actions/workflows/deploy.yml"><img src="https://github.com/developmentpark/evaluate-news-nlp/actions/workflows/deploy.yml/badge.svg?branch=main"/></a>
 </p>
 
 <p align="center">
-<b>Discover the Emotions Behind the Words</b></p>
+<b>Discover the Emotions Behind the Words</b>
+</p>
 
 <p align="center">
 <img src="https://lh3.googleusercontent.com/pw/ADCreHdzFseAMwKbjUaKsdnMjWt1zzOcHAzEP492pyQYmN55VqXiH5syA_Tg0XDvETe-jl-IzXhmOf6lvqS8rv920Q9zj_dihD_Mo-FakSTpqZVAPxmMI4IBVCQSF3vgqYGzkUCXrZFWmwuDHWCESiinmcE=w500-h500-s-no?authuser=0" width="300px"/>
@@ -66,14 +67,15 @@ If you'd like to run the Sentiment Analyzer locally for development or customiza
   BASE_URL: The base URL for the Meaningcloud API.
   SERVER_PORT: The port on which the server will run.
   SERVER_HOST: The host for the server.
+  API_URL: The API base URL
   ```
 - Install dependencies using `npm install`.
 - Run the application with `npm start`.
 
 **Using the live version**
 
-You can access the <a href="https://developmentpark.github.io/evaluate-news-nlp/" style="color:#4e4e4e;background-color:#38f21d;padding:6px 10px;font-weight:600;border-radius:6px;"><button>live version</button></a> 🚀
+You can access the <a href="https://developmentpark.github.io/evaluate-news-nlp/">live version</a> 🚀
 
 ## License
 
-This project is licensed under the MIT License.
+This project is licensed under the [MIT License](LICENSE).
