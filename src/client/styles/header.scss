@@ -2,11 +2,25 @@
 
 .header {
   background-color: rgba($white-color, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 1rem;
 
   .title {
-    padding: 1rem;
     color: $white-color;
     font-weight: 900;
     font-size: 16px;
+  }
+
+  .switch-theme {
+    background-color: transparent;
+    padding: 0.3rem 0.6rem;
+    border-radius: 10px;
+    font-size: 14px;
+    &:hover {
+      cursor: pointer;
+      background-color: rgba($primary-color, 0.4);
+    }
   }
 }
